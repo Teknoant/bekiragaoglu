@@ -9,3 +9,11 @@
 .advisory>div:last-child{min-width:0;position:relative;z-index:1}
 .advisory>div:last-child p{max-width:100%;overflow-wrap:anywhere}
 @media(max-width:780px){.video-standin{height:280px}}
+
+/* Wix-style home hero carousel */
+.hero{min-height:560px;padding-bottom:85px}
+.hero-controls{right:max(calc((100vw - 1200px)/2),30px);bottom:38px;gap:42px}
+.hero-controls button{width:42px;height:42px;display:grid;place-items:center;font-size:25px;line-height:1;color:#111;transition:transform .2s ease}
+.hero-controls button:hover{transform:scale(1.15)}
+.hero>img{transition:opacity .35s ease}
+@media(max-width:780px){.hero{min-height:auto;padding-bottom:70px}.hero-controls{right:20px;bottom:12px}}
