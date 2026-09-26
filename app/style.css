@@ -26,3 +26,8 @@
 .video-standin{background:#000;overflow:hidden}
 .video-standin video{width:100%;height:100%;object-fit:contain;object-position:center center}
 @media(min-width:781px){.video-standin{height:430px}}
+
+/* Advisory: preserve full portrait video and remove fixed-height crop */
+.video-standin{height:auto!important;aspect-ratio:auto;background:#000;overflow:visible}
+.video-standin video{display:block;width:100%;height:auto!important;max-height:none!important;object-fit:contain!important;object-position:center!important;background:#000}
+@media(min-width:781px){.advisory{align-items:center}.video-standin{height:auto!important}.video-standin video{height:auto!important}}
