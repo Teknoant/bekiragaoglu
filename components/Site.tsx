@@ -114,7 +114,16 @@ function Product({page}:{page:Page}){
     </section>}
   </div>
 }
-function Corporate({page}:{page:Page}){return <><section className="page-banner"><h1>KURUMSAL</h1></section><div className="product-content wrap"><Chunks items={page.chunks}/></div></>}
+function Corporate({page}:{page:Page}){
+ const raw=page.chunks.map(c=>c.text).join(' ').replace(/^KURUMSAL\s*/,'');
+ const sections=['Biz Kimiz?','Ne Yapıyoruz?','Neden Biz?','Misyonumuz.','Vizyonumuz.'];
+ const blocks=sections.map((heading,i)=>{const from=raw.indexOf(heading);const to=i+1<sections.length?raw.indexOf(sections[i+1],from+heading.length):raw.length;return {heading,text:from<0?'':raw.slice(from+heading.length,to).trim()};});
+ const who=blocks[0].text;
+ const paragraphs=['Kurulduğu yıllarda','Bugün, sektördeki'];
+ const first=paragraphs.reduce((a,t)=>{const i=who.indexOf(t);return i>=0?[...a,i]:a},[] as number[]).sort((a,b)=>a-b);
+ const whoParts=[0,...first,who.length].slice(0,-1).map((v,i,arr)=>who.slice(v,(i+1<arr.length?arr[i+1]:who.length)).trim());
+ return <><section className="corporate-hero" aria-hidden="true"></section><section className="corporate-page"><h1>KURUMSAL</h1><div className="corporate-body">{blocks.map((b,i)=><section key={b.heading} className="corporate-block"><h2>{b.heading.replace(/\.$/,'')}</h2>{i===0?whoParts.map((t,j)=><p key={j}>{t}</p>):i===2?<div className="corporate-reasons">{b.text.split('•').filter(Boolean).map((t,j)=><p key={j}>• {t.trim()}</p>)}</div>:<p>{b.text}</p>}</section>)}</div></section></>
+}
 function Contact(){return <section className="contact wrap"><h1>İletişime Geçin</h1><div className="contact-grid"><div><h2>TELEFON NUMARAMIZ</h2><a href="tel:+905423039030">0 542 303 90 30</a><h2>KONUM ADRESİMİZ</h2><p>Karşıyaka Mah. Gazi Blv. Kartallar Plaza No: 183/3 Kepez/Antalya</p><h2>MAİL ADRESİMİZ</h2><a href="mailto:info@bekiragaoglusigorta.com.tr">info@bekiragaoglusigorta.com.tr</a></div><Form kind="iletisim"/></div></section>}
 function Gallery({page}:{page:Page}){return <section className="wrap gallery"><h1>GALERİ</h1><div>{page.images.slice(1).map((im,i)=>i===7||i===11?<video key={i} controls playsInline preload="metadata" poster={asset(im.src)} src={i===7?'/media/gallery-video-1.mp4':'/media/gallery-video-2.mp4'}/>:<img key={i} src={asset(im.src)} alt={im.alt||`Galeri görseli ${i+1}`}/>)}</div></section>}
 export default function Site({path}:{path:string}){const page=all.find(p=>p.path===path);return <><Header/><main>{!page?<section className="wrap missing"><h1>Sayfa bulunamadı</h1><Link href="/">Ana Sayfa</Link></section>:path==='/'?<Home page={page}/>:path==='/kurumsal'?<Corporate page={page}/>:path==='/iletisim'?<Contact/>:path==='/blank-2-1'?<Gallery page={page}/>:<Product page={page}/>}</main><Footer/></>}
