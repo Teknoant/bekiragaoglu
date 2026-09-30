@@ -112,8 +112,10 @@
 @media(max-width:600px){.partners-heading{height:90px}.partners-house{width:calc(100% - 16px);min-height:590px;margin-top:20px;clip-path:polygon(50% 0%,100% 20%,100% 96%,50% 100%,0 96%,0 20%)}.partners-house-content{padding:135px 12px 40px}.partners-house h3{font-size:18px;margin-bottom:30px!important}.partners-logos{gap:7px}.partners .partner-logo-tile{flex-basis:calc((100% - 14px)/3);height:78px;padding:10px}.partners .partner-logo-tile img{max-height:65px!important}}
 
 
-/* The Wix chimney heart sits above the roof, outside its clipping mask. */
-.partners{position:relative}
-.partners-chimney-heart{position:absolute;z-index:5;top:153px;left:calc(50% + min(1360px,100% - 80px)*.25 - 7px);font-size:43px;line-height:1;filter:drop-shadow(0 3px 2px #8a402b55);pointer-events:none}
-@media(max-width:900px){.partners-chimney-heart{top:148px;left:calc(50% + (100% - 35px)*.25 - 7px);font-size:34px}}
-@media(max-width:600px){.partners-chimney-heart{top:105px;left:calc(75% - 10px);font-size:29px}}
+
+/* Position the heart against the actual chimney, not the whole section. */
+.partners-house-frame{width:min(1360px,calc(100% - 80px));margin:42px auto 0;position:relative}
+.partners-house-frame .partners-house{width:100%;margin:0}
+.partners-house-frame .partners-chimney-heart{position:absolute;z-index:5;top:2.8%;left:79.5%;transform:translate(-50%,-50%);font-size:43px;line-height:1;filter:drop-shadow(0 3px 2px #8a402b55);pointer-events:none}
+@media(max-width:900px){.partners-house-frame{width:calc(100% - 35px)}.partners-house-frame .partners-chimney-heart{font-size:34px}}
+@media(max-width:600px){.partners-house-frame{width:calc(100% - 16px);margin-top:20px}.partners-house-frame .partners-chimney-heart{top:17%;left:84%;font-size:29px}}
