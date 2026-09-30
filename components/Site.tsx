@@ -24,12 +24,31 @@ const productTabs=[
 ] as const;
 function ProductShowcase({page}:{page:Page}){const [active,setActive]=useState<number|null>(null);useEffect(()=>{if(active===null)return;const timer=window.setTimeout(()=>setActive(null),7000);return()=>window.clearTimeout(timer)},[active]);const mixed=[productTabs[2].cards[1],productTabs[3].cards[1],productTabs[4].cards[0],productTabs[1].cards[0]];const visible=active===null?mixed:productTabs[active].cards;return <section className="product-showcase" id="urunler"><div className="showcase-heading"><h2><span>ÜRÜN &amp; </span><strong>HİZMETLERİMİZ</strong></h2></div><div className="showcase-inner"><div className="showcase-tabs" role="tablist" aria-label="Sigorta kategorileri">{productTabs.map((tab,i)=><button key={tab.label} type="button" role="tab" id={`product-tab-${i}`} aria-selected={active===i} aria-controls="product-tab-panel" className={active===i?'active':''} onClick={()=>setActive(i)}>{tab.label}</button>)}</div><div className="showcase-cards" role="tabpanel" id="product-tab-panel" aria-label={active===null?'Öne çıkan sigorta ürünleri':productTabs[active].label}>{visible.map(([path,title,index])=><article key={path} className="shield-card" tabIndex={0}><img src={asset(page.images[index]?.src||'')} alt={title}/><div className="shield-overlay"><h3>{title}</h3><div className="shield-hover-details"><p>{path==='/bireyselemeklilik'?'Geleceğiniz için birikim yaparak ek emeklilik geliri sağlar.':'Sigorta ürünümüz hakkında detaylı bilgi alın veya teklif isteyin.'}</p><Link href={path}>İncele <span aria-hidden="true">⟶</span></Link><Link href="/iletisim">Teklif Al <span aria-hidden="true">⟶</span></Link></div></div></article>)}</div></div></section>}
 function Home({page}:{page:Page}){const [slide,setSlide]=useState(0);const hero=page.images.slice(0,10);useEffect(()=>{if(hero.length<2)return;const timer=window.setInterval(()=>setSlide(s=>(s+1)%hero.length),5000);return()=>window.clearInterval(timer)},[hero.length]);const items=page.chunks.filter(c=>c.tag==='p'&&c.text&&c.text!=='​');const heroTitle=items[slide*2]?.text||'Konut Sigortası';const heroDesc=items[slide*2+1]?.text||'';const partner=page.images.filter(i=>['9.png','AXA-Hayat-Emeklilik-Mavi-Logo-png.png','anadolusigorta_9fc4c310d5_edited.png','22_ea0kpld7h370opl (1).png','20_wu7azxqt1yc9o07.png','hi-logo.png','demir-hayat-logo.png'].includes(i.alt));return <><section className="hero"><div className="hero-copy"><h1>{heroTitle}</h1><p>{heroDesc}</p><Link href="/iletisim" className="pill">Teklif Al</Link></div><img src={asset(hero[slide]?.src||'')} alt={hero[slide]?.alt||heroTitle}/><div className="hero-controls"><button onClick={()=>setSlide((slide+hero.length-1)%hero.length)}>←</button><button onClick={()=>setSlide((slide+1)%hero.length)}>→</button></div></section><section className="advisory"><div className="advisory-inner"><div className="video-standin"><video controls playsInline preload="metadata" poster="/media/5f9784_9a006667049442e1ba3c31e338e33268~mv2.jpg"><source src="/media/intro-video.mp4" type="video/mp4"/>Tarayıcınız video oynatmayı desteklemiyor.</video></div><div className="advisory-copy"><h2>ÖZEL DANIŞMANLIK</h2><p>Müşterilerimizin ihtiyaçlarını analiz ediyor, farklı sigorta şirketleri arasından en uygun ürünleri karşılaştırarak size en doğru seçeneği sunuyoruz. Sağlıktan araca, konuttan iş yerine kadar geniş ürün yelpazemizle hayatınızın her alanında güvence sağlıyoruz.</p><Link className="gold-button" href="/iletisim">Bize Ulaşın</Link></div></div></section><ProductShowcase page={page}/><section className="partners"><div className="partners-heading"><h2><span>ÇÖZÜM </span><strong>ORTAKLARIMIZ</strong></h2></div><div className="partners-house-frame"><span className="partners-chimney-heart" aria-hidden="true">❤️</span><div className="partners-house"><div className="partners-house-content"><h3>Hayatın risklerine karşı,<br/> güven dolu bir çatı altındasınız</h3><div className="partners-logos">{partner.map((im,i)=><div className="partner-logo-tile" key={i}><img src={asset(im.src)} alt={im.alt}/></div>)}</div></div></div></div></section><section className="form-section"><div className="policy-heading"><h2><span>POLİÇENİZİ </span><strong>TAKİP EDELİM</strong></h2></div><Form kind="police"/></section></>}
+function ServiceIcon({path,index}:{path:string;index:number}){
+  const isBes=path==='/bireyselemeklilik';
+  const type=isBes?['saving','fund','support'][index]:path==='/özelsağlıksigortası'?['outpatient','bed','ambulance'][index]:['shield','support','saving'][index%3];
+  const common={fill:"none",stroke:"#d4a12d",strokeWidth:2.5,strokeLinecap:"round" as const,strokeLinejoin:"round" as const};
+  return <div className="service-icon" aria-hidden="true"><svg viewBox="0 0 96 68" role="presentation">
+    {type==='saving'&&<g {...common}><circle cx="48" cy="23" r="17"/><path d="M48 12v22m7-17c-4-5-14-4-14 2 0 8 15 4 15 12-1 6-12 7-16 2"/><path d="M29 48c-8-10-12-16-17-11-3 4 4 16 10 21l15 7m30-17c8-10 12-16 17-11 3 4-4 16-10 21l-15 7M30 47l10 6m26-6-10 6"/></g>}
+    {type==='fund'&&<g {...common}><path d="M69 16a28 28 0 1 0 7 23M68 6l2 15-16-1"/><path d="M48 20v28m8-23c-6-5-17-4-17 4 0 8 18 5 18 13-1 8-14 9-19 3"/></g>}
+    {type==='support'&&<g {...common}><path d="M22 38v-6a26 26 0 0 1 52 0v6"/><rect x="17" y="33" width="12" height="22" rx="5"/><rect x="67" y="33" width="12" height="22" rx="5"/><path d="M73 55c0 10-12 12-24 12"/><circle cx="46" cy="64" r="3" fill="#d4a12d"/></g>}
+    {type==='outpatient'&&<g {...common}><circle cx="48" cy="23" r="13"/><path d="M26 61V48c0-10 9-17 22-17s22 7 22 17v13M37 44l11 10 11-10M48 39v19"/></g>}
+    {type==='bed'&&<g {...common} strokeWidth={4}><path d="M15 13v47m0-12h68v12M15 38h68v10H15z"/><circle cx="30" cy="30" r="7"/><path d="M42 26h32v12H42z"/></g>}
+    {type==='ambulance'&&<g {...common} strokeWidth={3}><path d="M10 23h47v30H10zM57 33h13l13 12v8H57z"/><circle cx="25" cy="56" r="7" fill="#fff"/><circle cx="68" cy="56" r="7" fill="#fff"/><path d="M29 30h13m-6-7v14"/></g>}
+    {type==='shield'&&<g {...common}><path d="M48 5 78 17v20c0 20-14 29-30 36-16-7-30-16-30-36V17z"/><path d="m35 37 9 9 18-20"/></g>}
+  </svg></div>
+}
 function Product({page}:{page:Page}){
   const heading=page.chunks.find(c=>c.tag.startsWith('h'))?.text||page.title.split(' | ')[0];
   const clean=page.chunks.filter(c=>c.text&&c.text!=='​');
   const serviceIndex=clean.findIndex(c=>/^ÜRÜN (HİZMET|HİZMETLERİMİZ)/i.test(c.text));
   const detail=(serviceIndex>0?clean.slice(1,serviceIndex):clean.slice(1));
-  const services=(serviceIndex>=0?clean.slice(serviceIndex+1):[]).map(c=>c.text).filter(Boolean);
+  const serviceChunks=serviceIndex>=0?clean.slice(serviceIndex+1):[];
+  const services=serviceChunks.reduce<{title:string;description:string}[]>((acc,c)=>{
+    if(c.tag.startsWith('h'))acc.push({title:c.text,description:''});
+    else if(acc.length)acc[acc.length-1].description+=(acc[acc.length-1].description?' ':'')+c.text;
+    return acc;
+  },[]);
   const hero=page.images[0]?asset(page.images[0].src):'';
   const labels=['Nedir?','Kapsamdan Öne Çıkanlar','Kimler İçin Uygun?','Önemli Notlar','Bekirağaoğlu Sigorta Nasıl Yardımcı Olur?','Evcil Hayvan Sigortası Neleri Kapsar?','Sigorta Yaptırırken Nelere Dikkat Edilmeli?','Kimler Yaptırabilir?','Neden Evcil Hayvan Sigortası Yaptırmalısınız?'];
   const renderText=(text:string,i:number)=>{
@@ -49,7 +68,7 @@ function Product({page}:{page:Page}){
     </section>
     {services.length>0&&<section className="product-services">
       <div className="product-services-heading"><h2><span>ÜRÜN </span><strong>HİZMETLERİMİZ</strong></h2></div>
-      <div className="product-service-list">{services.map((item,i)=><article className="product-service-item" key={item+i}><div className="service-icon" aria-hidden="true">{i===0?'♧':i===1?'↻':'◉'}</div><div><h3>{item}</h3></div></article>)}</div>
+      <div className="product-service-list">{services.map((item,i)=><article className="product-service-item" key={item.title+i}><ServiceIcon path={page.path} index={i}/><div><h3>{item.title}</h3>{item.description&&<p>{item.description}</p>}</div></article>)}</div>
     </section>}
   </div>
 }
