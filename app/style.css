@@ -51,3 +51,24 @@
   .advisory-copy h2{white-space:nowrap!important;font-size:34px!important;margin:0 0 38px!important}
   .advisory-copy p{width:100%!important;max-width:690px!important;font-size:16px!important;line-height:1.85!important;overflow-wrap:normal!important;word-break:normal!important}
 }
+
+
+/* Original Wix-style tabbed product showcase */
+.product-showcase{background:#f7f8fa;padding:0 0 105px;min-height:680px}
+.showcase-heading{height:235px;background:#fff;position:relative;display:flex;justify-content:center;align-items:flex-start;padding-top:58px;clip-path:ellipse(110% 100% at 50% 0%)}
+.showcase-heading h2{position:relative;font-size:clamp(28px,3.2vw,51px);line-height:1.15;font-weight:400;margin:0;padding:13px 10px 0;border-top:2px solid #252525;white-space:nowrap;color:#393637}
+.showcase-heading h2 strong{font-weight:800;position:relative;z-index:0}
+.showcase-heading h2 strong:after{content:"";position:absolute;z-index:-1;left:1%;right:0;bottom:1px;height:29%;background:#d5a437}
+.showcase-heading:after{content:"";position:absolute;width:2px;height:90px;background:#d5a437;bottom:8px;left:50%}
+.showcase-inner{max-width:1510px;padding:0 24px;margin:20px auto 0}
+.showcase-tabs{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));background:white;min-height:43px}
+.showcase-tabs button{border:0;background:transparent;color:#171717;font-size:12px;font-weight:700;padding:12px 5px;white-space:nowrap;transition:color .2s,background .2s}
+.showcase-tabs button:hover,.showcase-tabs button.active{color:#c58b1b;background:#fbfbfb}
+.showcase-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:35px 60px;justify-items:center;align-items:start;padding:20px 25px 0;min-height:410px}
+.shield-card{position:relative;display:block;width:min(100%,285px);height:375px;clip-path:polygon(50% 0,100% 10%,100% 69%,96% 78%,85% 88%,50% 100%,15% 88%,4% 78%,0 69%,0 10%);background:#ddd;overflow:hidden}
+.shield-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s ease}
+.shield-card:hover img{transform:scale(1.05)}
+.shield-card span{position:absolute;bottom:0;left:0;right:0;min-height:75px;padding:12px 8px 18px;display:flex;align-items:flex-start;justify-content:center;text-align:center;background:#0009;color:#fff;font-family:Georgia,serif;font-size:21px;line-height:1.18}
+@media(max-width:1050px){.showcase-tabs{display:flex;overflow-x:auto;scrollbar-width:thin}.showcase-tabs button{flex:0 0 auto;padding:12px 18px}.showcase-cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}}
+@media(max-width:700px){.product-showcase{padding-bottom:55px;min-height:0}.showcase-heading{height:165px;padding-top:35px}.showcase-heading h2{font-size:clamp(21px,5vw,33px)}.showcase-heading:after{height:42px}.showcase-inner{margin-top:15px;padding:0 12px}.showcase-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;padding:20px 0;min-height:260px}.shield-card{height:auto;aspect-ratio:285/375}.shield-card span{font-size:15px;min-height:65px;padding:10px 5px}}
+@media(max-width:430px){.showcase-cards{grid-template-columns:1fr}.shield-card{width:260px;height:345px}.showcase-heading h2{font-size:21px}}
