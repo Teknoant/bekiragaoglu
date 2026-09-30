@@ -119,3 +119,21 @@
 .partners-house-frame .partners-chimney-heart{position:absolute;z-index:5;top:2.8%;left:79.5%;transform:translate(-50%,-50%);font-size:43px;line-height:1;filter:drop-shadow(0 3px 2px #8a402b55);pointer-events:none}
 @media(max-width:900px){.partners-house-frame{width:calc(100% - 35px)}.partners-house-frame .partners-chimney-heart{font-size:34px}}
 @media(max-width:600px){.partners-house-frame{width:calc(100% - 16px);margin-top:20px}.partners-house-frame .partners-chimney-heart{top:17%;left:84%;font-size:29px}}
+
+/* Wix policy tracking section: broad white rounded card and gold outline fields. */
+.form-section{padding:0 24px 90px;background:#f8f9fa}
+.policy-heading{height:105px;background:#fff;display:flex;align-items:center;justify-content:center;margin:0 -24px 34px}
+.policy-heading h2{margin:0!important;font-size:clamp(27px,3vw,45px)!important;line-height:1.15;font-weight:400;color:#403c3e;text-align:center}
+.policy-heading strong{font-weight:800}
+.form-section .policy-form{width:min(1235px,100%);max-width:1235px;border-radius:20px;padding:30px 25px 25px;box-shadow:0 8px 30px #00000016}
+.policy-form h2{font-size:clamp(27px,2.6vw,39px);color:#050505;margin:0 0 28px;font-weight:700}
+.policy-form .form-grid{grid-template-columns:1fr 1fr;column-gap:24px;row-gap:0}
+.policy-form .form-grid label{font-size:0;line-height:0;margin:0 0 22px}
+.policy-form .form-grid label:nth-child(n+3){grid-column:1/-1}
+.policy-form .form-grid input{height:43px!important;border:1px solid #e6b65b!important;border-radius:6px!important;margin:0!important;padding:9px 12px!important;font-size:16px;line-height:1.4;font-weight:400;color:#333}
+.policy-form .form-grid input:focus{outline:2px solid #d8a93f;outline-offset:1px}
+.policy-form .consent{margin:2px 0 21px;font-size:15px;color:#111;align-items:center}
+.policy-form .consent input{accent-color:#d7a63b}
+.policy-form>.gold-button{display:block;width:100%;border:0;border-radius:28px;background:#f4f4f6;color:#b98427;font-weight:400;padding:10px 20px;margin:0}
+.policy-form>.gold-button:hover{background:#eadbb8;color:#45300d}
+@media(max-width:600px){.form-section{padding:0 14px 55px}.policy-heading{margin:0 -14px 24px;height:90px}.form-section .policy-form{padding:24px 17px;border-radius:16px}.policy-form .form-grid{grid-template-columns:1fr;gap:0}.policy-form .form-grid label:nth-child(n+3){grid-column:auto}.policy-form h2{margin-bottom:23px}}
