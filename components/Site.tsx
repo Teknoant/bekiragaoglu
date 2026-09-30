@@ -17,7 +17,7 @@ const productTabs=[
 {label:'Bireysel Emeklilik',cards:[['/bireyselemeklilik','Bireysel Emeklilik (BES) Sigortası',19]]},
 {label:'Sağlık Sigortası',cards:[['/tamamlayıcısağlıksigortası','Tamamlayıcı Sağlık Sigortası',3],['/özelsağlıksigortası','Özel Sağlık Sigortası',4],['/saglıkturizmikomplikasyon','Sağlık Turizmi Komplikasyon',9]]},
 {label:'Araç Sigortası',cards:[['/zorunlutrafiksigortası','Zorunlu Trafik Sigortası',1],['/kaskosigortası','Kasko Sigortası',2],['/yesilkartsigortası','Yeşil Sigorta',12]]},
-{label:'Yangın Sigortası',cards:[['/daskzorunludepremsigortası','Zorunlu Deprem (DASK) Sigortası',5],['/konutsigortası','Konut Sigortası',0]]},
+{label:'Yangın Sigortası',cards:[['/daskzorunludepremsigortası','Zorunlu Deprem (DASK) Sigortası',5],['/konutsigortası','Konut Sigortası',11]]},
 {label:'Ticari Kurumsal',cards:[['/i̇syerisigortası','İşyeri Sigortası',6],['/i̇nsaatallrisksigortası','İnşaat All Risk Sigortası',7]]},
 {label:'Evcil Hayvanlar',cards:[['/evcilhayvansigortası','Evcil Hayvan Sigortası',17]]},
 {label:'Seyahat Sigortası',cards:[['/seyahatsaglıksigortası','Seyahat Sigortası',18]]}
