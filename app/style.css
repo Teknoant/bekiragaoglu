@@ -257,3 +257,23 @@
  .video-standin{height:auto!important;aspect-ratio:auto!important;background:#050505;border-radius:18px;overflow:hidden}
  .video-standin video{display:block;width:100%!important;height:auto!important;max-height:none!important;object-fit:contain!important;object-position:center center!important}
 }
+
+/* Modern corporate contact page */
+.contact-hero{background:linear-gradient(120deg,#080808,#17130b);color:#fff;padding:70px max(calc((100vw - 1100px)/2),30px);border-bottom:2px solid var(--gold)}
+.contact-hero>div{max-width:650px}.contact-hero span,.contact-form-title small,.contact-map-copy small{color:var(--gold);font-size:12px;font-weight:700;letter-spacing:.14em}
+.contact-hero h1{font-size:43px;margin:8px 0 10px}.contact-hero p{margin:0;color:#c9c9c9;font-size:16px}
+.contact-modern{padding-top:55px;padding-bottom:90px}.contact-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:28px}
+.contact-card{min-height:150px;border:1px solid #e5e5e5;background:#fff;padding:24px;display:flex;gap:17px;align-items:flex-start;box-shadow:0 10px 32px #0000000a;transition:.2s ease}
+.contact-card:hover{transform:translateY(-3px);border-color:#d7a63b;box-shadow:0 14px 35px #00000012}.contact-card-icon{flex:0 0 46px;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:#f7f1e4;color:#c28c17;font-size:21px}
+.contact-card div{min-width:0;display:flex;flex-direction:column}.contact-card small{font-size:10px;letter-spacing:.13em;color:#8a8a8a;font-weight:700;margin-bottom:7px}.contact-card strong{font-size:13px;line-height:1.65;overflow-wrap:anywhere}.contact-card em{font-style:normal;color:#b27e10;font-size:11px;margin-top:8px}
+.contact-main{display:grid;grid-template-columns:.85fr 1.15fr;gap:28px;align-items:stretch}.contact-map-card{background:#101010;color:white;min-height:480px;padding:42px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.contact-map-card:after{content:'⌖';position:absolute;right:-20px;bottom:-95px;font-size:300px;color:#d7a63b0d;line-height:1}.contact-map-copy{position:relative;z-index:1}.contact-map-copy h2{font-size:30px;margin:8px 0 18px}.contact-map-copy p{color:#c7c7c7;max-width:390px}.contact-route{display:inline-block;margin-top:22px;color:#e0ad38;border-bottom:1px solid #e0ad38;padding-bottom:3px;font-weight:600}
+.contact-hours{position:relative;z-index:1;border-top:1px solid #40351d;padding-top:22px;display:flex;flex-direction:column;gap:4px}.contact-hours span{color:#a9a9a9;font-size:11px}.contact-hours strong{color:#fff}.contact-hours b{color:#d7a63b;font-size:20px}
+.contact-form-card{background:#fafafa;border:1px solid #ececec;padding:38px}.contact-form-title h2{font-size:29px;margin:5px 0 5px}.contact-form-title p{font-size:13px;color:#777;margin:0 0 24px}
+.contact-form-card .lead-form{padding:0;box-shadow:none;background:transparent;max-width:none}.contact-form-card .lead-form>h2{display:none}.contact-form-card .lead-form input:not([type=checkbox]),.contact-form-card .lead-form textarea{border:1px solid #d4d4d4;background:#fff;border-radius:3px}.contact-form-card .gold-button{min-width:150px;text-align:center}
+@media(max-width:780px){
+ .contact-hero{padding:42px 20px}.contact-hero h1{font-size:31px}.contact-hero p{font-size:13px;line-height:1.7}
+ .contact-modern{padding:28px 16px 60px}.contact-cards{grid-template-columns:1fr;gap:12px}.contact-card{min-height:0;padding:18px;border-radius:15px;align-items:center}.contact-card-icon{flex-basis:44px;width:44px;height:44px}.contact-card strong{font-size:12px}.contact-card em{font-size:10px}
+ .contact-main{grid-template-columns:1fr;gap:18px}.contact-map-card{min-height:340px;padding:28px 23px;border-radius:18px}.contact-map-copy h2{font-size:25px}.contact-map-copy p{font-size:13px}.contact-route{display:flex;justify-content:center;background:#d7a63b;color:#090909;border:0;padding:13px 12px;border-radius:4px;font-size:12px}
+ .contact-hours b{font-size:18px}.contact-form-card{padding:26px 18px;border-radius:18px}.contact-form-title h2{font-size:25px}.contact-form-card .form-grid{grid-template-columns:1fr}.contact-form-card .lead-form label{font-size:12px}.contact-form-card .gold-button{width:100%;padding:14px}
+}
