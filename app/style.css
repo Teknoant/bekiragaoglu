@@ -87,3 +87,11 @@
 .shield-card:hover .shield-hover-details,.shield-card:focus-within .shield-hover-details,.shield-card:focus .shield-hover-details{max-height:230px;opacity:1;visibility:visible}
 @media(max-width:700px){.shield-card .shield-overlay h3{font-size:17px}.shield-card .shield-hover-details p{font-size:10px;margin:10px 0}.shield-card .shield-hover-details a{font-size:13px;padding:7px 4px}}
 @media(hover:none){.shield-card:focus-within .shield-hover-details{max-height:230px;opacity:1;visibility:visible}}
+
+
+/* Shield tip safe area: keep two-line titles inside visible shield */
+.shield-card .shield-overlay{bottom:15%!important;left:12%!important;right:12%!important;min-height:0!important;padding:9px 5px!important;background:rgba(0,0,0,.62)!important}
+.shield-card .shield-overlay h3{font-size:clamp(15px,1.25vw,19px)!important;line-height:1.3!important;overflow-wrap:break-word!important;word-break:normal!important;hyphens:none!important}
+.shield-card:hover .shield-overlay,.shield-card:focus-within .shield-overlay,.shield-card:focus .shield-overlay{bottom:17%!important}
+.shield-card:hover .shield-overlay h3,.shield-card:focus-within .shield-overlay h3{font-size:18px!important}
+@media(max-width:700px){.shield-card .shield-overlay h3{font-size:15px!important}.shield-card:hover .shield-overlay h3{font-size:15px!important}}
