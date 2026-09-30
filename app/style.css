@@ -251,3 +251,9 @@
  .premium-footer-inner{padding:44px 22px 48px;grid-template-columns:1fr;gap:36px}.footer-brand{grid-column:auto;align-items:center;text-align:center}.footer-brand img{width:105px;height:95px;object-position:center}.footer-address{justify-content:center}.premium-footer h2{text-align:center;font-size:19px}.footer-gold-rule{margin-bottom:18px}.footer-contact>a,.footer-hours{justify-content:center;font-size:12px}.footer-social-icons{justify-content:center;padding:4px 0}.footer-bottom{text-align:center;align-items:center}
 }
 @media(max-width:390px){.head-inner{padding:0 12px}.hero>img{height:220px}.product-service-item{grid-template-columns:76px 1fr}.product-service-item .service-icon{width:70px}.footer-contact>a,.footer-hours{font-size:11px}}
+
+/* Mobile video: show the complete frame without cropping */
+@media(max-width:780px){
+ .video-standin{height:auto!important;aspect-ratio:auto!important;background:#050505;border-radius:18px;overflow:hidden}
+ .video-standin video{display:block;width:100%!important;height:auto!important;max-height:none!important;object-fit:contain!important;object-position:center center!important}
+}
