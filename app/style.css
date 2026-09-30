@@ -74,15 +74,16 @@
 @media(max-width:430px){.showcase-cards{grid-template-columns:1fr}.shield-card{width:260px;height:345px}.showcase-heading h2{font-size:21px}}
 
 
-/* Wix shield hover: title rises, details and links appear */
-.shield-card{cursor:default}
-.shield-overlay{position:absolute;left:6%;right:6%;bottom:0;z-index:2;text-align:center;color:#fff;transition:bottom .3s ease,transform .3s ease;background:#0009;min-height:80px;padding:12px 9px 15px}
-.shield-overlay h3{font:normal 22px/1.2 Georgia,serif;margin:0}
-.shield-hover-details{max-height:0;opacity:0;overflow:hidden;transition:max-height .35s ease,opacity .25s ease}
-.shield-hover-details p{font:600 11px/1.5 Montserrat,Arial,sans-serif;margin:18px 0}
-.shield-hover-details a{display:flex;justify-content:center;gap:15px;align-items:center;color:#fff;font-size:15px;padding:10px 4px;margin:4px 0}
-.shield-hover-details a:hover{text-decoration:underline}
-.shield-card:hover .shield-overlay,.shield-card:focus-within .shield-overlay,.shield-card:focus .shield-overlay{bottom:11%;background:#000b}
-.shield-card:hover .shield-hover-details,.shield-card:focus-within .shield-hover-details,.shield-card:focus .shield-hover-details{max-height:260px;opacity:1}
-@media(hover:none){.shield-card:active .shield-hover-details{max-height:260px;opacity:1}}
-@media(max-width:700px){.shield-overlay h3{font-size:17px}.shield-hover-details p{font-size:10px;margin:10px 0}.shield-hover-details a{font-size:13px;padding:6px}}
+/* Wix shield card: readable title, clean hover actions */
+.shield-card{cursor:default;isolation:isolate}
+.shield-card .shield-overlay{position:absolute;z-index:2;left:6%;right:6%;bottom:0;min-height:80px;padding:12px 10px 17px;background:rgba(0,0,0,.62);color:#fff;text-align:center;transition:bottom .3s ease,background .3s ease}
+.shield-card .shield-overlay h3{font:normal 21px/1.2 Georgia,serif;margin:0;color:#fff;overflow-wrap:normal}
+.shield-card .shield-hover-details{max-height:0;opacity:0;visibility:hidden;overflow:hidden;transition:max-height .3s ease,opacity .3s ease,visibility .3s}
+.shield-card .shield-hover-details p{font:600 11px/1.5 Montserrat,Arial,sans-serif;margin:15px 0 12px;color:#fff}
+.shield-card .shield-hover-details a{position:relative;display:flex;align-items:center;justify-content:center;gap:12px;background:transparent!important;color:#fff!important;font:600 15px/1.3 Montserrat,Arial,sans-serif;padding:10px 5px;margin:3px 0;text-decoration:none}
+.shield-card .shield-hover-details a span{position:static!important;display:inline!important;min-height:0!important;padding:0!important;background:none!important;color:inherit!important;font:inherit!important}
+.shield-card .shield-hover-details a:hover,.shield-card .shield-hover-details a:focus-visible{text-decoration:underline;background:transparent!important}
+.shield-card:hover .shield-overlay,.shield-card:focus-within .shield-overlay,.shield-card:focus .shield-overlay{bottom:8%;background:rgba(0,0,0,.72)}
+.shield-card:hover .shield-hover-details,.shield-card:focus-within .shield-hover-details,.shield-card:focus .shield-hover-details{max-height:230px;opacity:1;visibility:visible}
+@media(max-width:700px){.shield-card .shield-overlay h3{font-size:17px}.shield-card .shield-hover-details p{font-size:10px;margin:10px 0}.shield-card .shield-hover-details a{font-size:13px;padding:7px 4px}}
+@media(hover:none){.shield-card:focus-within .shield-hover-details{max-height:230px;opacity:1;visibility:visible}}
